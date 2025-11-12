@@ -28,14 +28,8 @@ jobs:
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
       with:
-	#Task 3:
-        #i: create a service account and export it's json key
-        #ii: create a github action scret call GAE_SA_KEY, 
-	#and use the json key above as the content
         credentials_json: ${{ secrets.GAE_SA_KEY }}
 
     - name: Deploy to App Engine
       run: |
-	#Task 4:
-	#There is just one more thing to do
         gcloud app deploy app.yaml --project ${{ secrets.GCP_PROJECT_ID }} --quiet
